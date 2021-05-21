@@ -6,6 +6,7 @@ namespace TalisSoft.Octopus.Application.Features.Customers.Queries.GetCustomerLi
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public DateTime CreatedAt { get; set; }
         
     }
 }
