@@ -12,5 +12,6 @@ namespace TalisSoft.Common.Application.Contracts.Persistence
         Task<T> AddAsync(T entity, CancellationToken cancellation);
         Task UpdateAsync(T entity, CancellationToken cancellation);
         Task DeleteAsync(T entity, CancellationToken cancellation);
+        Task<IEnumerable<T>> GetPagedAsync(int page, int size, CancellationToken cancellationToken);
     }
 }

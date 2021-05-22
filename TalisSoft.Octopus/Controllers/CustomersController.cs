@@ -16,9 +16,9 @@ namespace TalisSoft.Octopus.Controllers
     {
         private readonly IMediator _mediator;
 
-        public CustomersController(IMediator _mediator)
+        public CustomersController(IMediator mediator)
         {
-            this._mediator = _mediator;
+            _mediator = mediator;
         }
 
         [HttpGet]

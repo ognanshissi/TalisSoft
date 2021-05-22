@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,7 @@ namespace TalisSoft.Common.Persistence.Repositories
             return await Context.Set<T>().FindAsync(id, cancellation).ConfigureAwait(false);
         }
 
-        public async Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellation)
+        public virtual async Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellation)
         {
             return await Context.Set<T>().ToListAsync(cancellation).ConfigureAwait(false);
         }
@@ -45,6 +46,12 @@ namespace TalisSoft.Common.Persistence.Repositories
         {
             Context.Set<T>().Remove(entity);
             await Context.SaveChangesAsync(cancellation).ConfigureAwait(false);
+        }
+
+        public virtual async Task<IEnumerable<T>> GetPagedAsync(int page, int size, CancellationToken cancellationToken)
+        {
+            return await Context.Set<T>().Skip((page - 1) * size).Take(size).AsNoTracking()
+                .ToListAsync(cancellationToken).ConfigureAwait(false);
         }
     }
 }

@@ -12,10 +12,10 @@ namespace TalisSoft.Octopus.Application.Features.Customers.Queries.GetCustomerLi
         private readonly ICustomerRepository _customer;
         private readonly IMapper _mapper;
 
-        public GetCustomerListQueryHandler(ICustomerRepository _customer, IMapper _mapper)
+        public GetCustomerListQueryHandler(ICustomerRepository customer, IMapper mapper)
         {
-            this._customer = _customer;
-            this._mapper = _mapper;
+            _customer = customer;
+            _mapper = mapper;
         }
         public async Task<List<CustomerListVm>> Handle(GetCustomerListQuery request, CancellationToken cancellationToken)
         {
