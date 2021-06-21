@@ -6,5 +6,6 @@ namespace TalisSoft.Octopus.Application.Features.Customers.Commands.CreateCustom
     {
         public string Name { get; set; }
         public string Contact { get; set; }
+        public string Email { get; set; }
     }
 }

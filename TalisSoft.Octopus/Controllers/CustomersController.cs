@@ -1,12 +1,12 @@
-using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TalisSoft.Octopus.Application.Features.Customers.Commands.CreateCustomer;
 using TalisSoft.Octopus.Application.Features.Customers.Queries.GetCustomerList;
+using TalisSoft.Octopus.Persistence;
 
 namespace TalisSoft.Octopus.Controllers
 {
@@ -18,7 +18,7 @@ namespace TalisSoft.Octopus.Controllers
 
         public CustomersController(IMediator mediator)
         {
-            _mediator = mediator;
+          _mediator = mediator;
         }
 
         [HttpGet]

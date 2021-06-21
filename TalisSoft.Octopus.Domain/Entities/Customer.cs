@@ -1,11 +1,12 @@
-using System;
+using System.Collections.Generic;
 using TalisSoft.Common.Domain.Entities;
 
 namespace TalisSoft.Octopus.Domain.Entities
 {
-    public class Customer: Auditable
+    public class Customer: Person
     {
-        public string  Name { get; set; }
-        public string Contact { get; set; }
+      public string Email { get; set; }
+      
+        public IEnumerable<Shipment> Shipments { get; set; } = new List<Shipment>();
     }
 }

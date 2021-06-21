@@ -10,5 +10,12 @@ namespace TalisSoft.Common.Domain.Entities
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
         public bool IsDeleted { get; set; }
+
+        public Auditable()
+        {
+          CreatedAt = DateTime.UtcNow;
+          IsDeleted = false;
+        }
+        
     }
 }
