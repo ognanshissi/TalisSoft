@@ -21,7 +21,9 @@ namespace TalisSoft.Octopus.Persistence
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasSequence<int>("CustomerNumbers").StartsAt(1000).IncrementsBy(5);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(OctopusDbContext).Assembly);
+
         }
         
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

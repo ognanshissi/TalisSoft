@@ -5,8 +5,9 @@ namespace TalisSoft.Octopus.Domain.Entities
 {
     public class Customer: Person
     {
+      public int CustomerNo { get; set; }
       public string Email { get; set; }
       
-        public IEnumerable<Shipment> Shipments { get; set; } = new List<Shipment>();
+      public IEnumerable<Shipment> Shipments { get; set; } = new List<Shipment>();
     }
 }

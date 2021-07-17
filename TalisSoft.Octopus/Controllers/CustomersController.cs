@@ -23,7 +23,7 @@ namespace TalisSoft.Octopus.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<CustomerListVm>>> GetAll()
+        public async Task<ActionResult<IEnumerable<CustomerListVm>>> GetAll()
         {
             var customers = await _mediator.Send(new GetCustomerListQuery());
             return Ok(customers);

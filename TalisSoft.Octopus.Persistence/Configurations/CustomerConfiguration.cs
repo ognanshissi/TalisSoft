@@ -26,6 +26,12 @@ namespace TalisSoft.Octopus.Persistence.Configurations
             builder
               .Property(c => c.Addresses)
               .HasColumnType("jsonb");
+
+            builder.Property(c => c.CustomerNo)
+              .HasDefaultValueSql("nextval('\"CustomerNumbers\"')");
+            
+            builder.Property(c => c.FullName)
+              .HasComputedColumnSql(@"""FirstName"" || ' ' || ""LastName""", stored: true);
         }
     }
 }

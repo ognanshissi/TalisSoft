@@ -36,13 +36,13 @@ namespace TalisSoft.Common.Persistence.Repositories
             return entity;
         }
 
-        public async Task UpdateAsync(T entity, CancellationToken cancellation)
+        public virtual async Task UpdateAsync(T entity, CancellationToken cancellation)
         {
             Context.Entry(entity).State = EntityState.Modified;
             await Context.SaveChangesAsync(cancellation).ConfigureAwait(false);
         }
 
-        public async Task DeleteAsync(T entity, CancellationToken cancellation)
+        public virtual async Task DeleteAsync(T entity, CancellationToken cancellation)
         {
             Context.Set<T>().Remove(entity);
             await Context.SaveChangesAsync(cancellation).ConfigureAwait(false);
