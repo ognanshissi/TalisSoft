@@ -19,9 +19,8 @@ namespace TalisSoft.Octopus.Domain.Entities
     public Path Path { get; set; }
     public Guid PathId { get; set; }
     public IEnumerable<Pack> Packages { get; set; }
-    public Decimal Amount { get; set; }
-    public DateTime? PaidAt { get; set; }
-    public string? PaymentMode { get; set; }
+    public Guid InvoiceId { get; set; }
+    public Invoice Invoice { get; set; } 
     public string Status { get; set; } // Created, Waiting, Process, Shipped, Delivered
 
 
